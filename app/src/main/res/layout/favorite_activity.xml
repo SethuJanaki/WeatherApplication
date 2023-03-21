@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_back_black"
+                        app:layout_constraintBottom_toBottomOf="@id/text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/text" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_50dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/Favorite"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/search"
+                        app:layout_constraintStart_toEndOf="@id/back"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/dimen_10dp"
+                        android:src="@drawable/ic_search"
+                        app:layout_constraintBottom_toBottomOf="@id/text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text"
+                        app:layout_constraintTop_toTopOf="@id/text" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_0dp"
+            android:background="@drawable/background_android"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/favorite_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_16dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimen_16dp"
+                android:text="@string/remove_all"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0dp"
+                android:layout_margin="@dimen/dimen_16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/favorite_text"
+                tools:listitem="@layout/layout_favorite" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emptyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_0dp"
+        android:background="@drawable/background_android"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:src="@drawable/icon_nothing"
+            app:layout_constraintBottom_toTopOf="@id/empty_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_favorites_added"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_16sp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/dimen_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="add_to_favorite">Add to favorite</string>
+    <string name="celsius">\u2103</string>
+    <string name="farenheit">\u2109</string>
+    <string name="temperature">%s \u2103</string>
+    <string name="added_as_favorite">%d City added as favourite</string>
+    <string name="search_for_city">Search for City</string>
+    <string name="remove_all">Remove All</string>
+    <string name="clear_all">Clear All</string>
+    <string name="no_favorites_added">No Favorites added</string>
+    <string name="Favorite">Favourite</string>
+    <string name="recent_search">Recent Search</string>
+    <string name="no_recent_search">No Recent Search</string>
+    <string name="you_recently_searched_for">You recently searched for</string>
+    <string-array name="cities">
+        <item>Bengaluru</item>
+        <item>Chennai</item>
+        <item>Delhi</item>
+        <item>Hyderabad</item>
+        <item>Mumbai</item>
+        <item>Kolkata</item>
+    </string-array>
+</resources>

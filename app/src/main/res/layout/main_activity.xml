@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_android">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:elevation="@dimen/dimen_0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Light">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/menu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_16dp"
+                            android:layout_marginBottom="@dimen/dimen_16dp"
+                            android:src="@drawable/icon_menu_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimen_50dp"
+                            android:layout_marginTop="@dimen/dimen_10dp"
+                            android:layout_marginBottom="@dimen/dimen_10dp"
+                            android:src="@drawable/logo"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/menu"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dimen_16dp"
+                            android:src="@drawable/icon_search_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginBottom="@dimen/dimen_12dp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/font_14sp"
+                    app:layout_constraintBottom_toTopOf="@id/location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_16dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/icon_favorite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/icon_favourite"
+                    app:layout_constraintBottom_toTopOf="@id/weather_icon"
+                    app:layout_constraintEnd_toStartOf="@id/add_favorite"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/add_favorite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_8dp"
+                    android:text="@string/add_to_favorite"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/icon_favorite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/icon_favorite"
+                    app:layout_constraintTop_toTopOf="@id/icon_favorite" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/weather_icon"
+                    android:layout_width="@dimen/dimen_65dp"
+                    android:layout_height="@dimen/dimen_65dp"
+                    android:src="@drawable/icon_partially_cloudy_big"
+                    app:layout_constraintBottom_toTopOf="@id/weather"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/date" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/temperature_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginBottom="@dimen/dimen_16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/weather_icon">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/temperature"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_45sp"
+                        app:layout_constraintEnd_toStartOf="@+id/select"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/weather_icon" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/select"
+                        android:layout_width="@dimen/dimen_0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dimen_10dp"
+                        android:layout_marginBottom="@dimen/dimen_12dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:layout_constraintBottom_toBottomOf="@id/temperature"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/temperature">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/celsius"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_selected_drawable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="@dimen/dimen_10dp"
+                            android:text="@string/celsius"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/font_18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/farenheit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/button_unselected_drawable"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingHorizontal="@dimen/dimen_10dp"
+                            android:text="@string/farenheit"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/celsius" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/temperature_layout" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/weather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:listitem="@layout/layout_weather" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:itemTextColor="@color/dark_gray"
+        app:menu="@menu/activity_main_drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
