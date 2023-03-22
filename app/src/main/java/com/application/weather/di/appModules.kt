@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val appModule = module {
 
-    factory { provideNewsClient(get()) }
+    factory { provideWeatherService(get()) }
 
     single { provideRetrofit() }
 
@@ -46,25 +46,11 @@ val appModule = module {
         RecentViewModel(get())
     }
 }
-
-fun provideInterceptor(): HttpLoggingInterceptor {
-    return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-}
-
-fun provideHttpClient(): OkHttpClient {
-    val httpInterceptor = HttpLoggingInterceptor()
-    httpInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-    val client = OkHttpClient()
-    client.interceptors.plus(httpInterceptor)
-    return client
-}
-
 fun provideRetrofit(): Retrofit {
     return Retrofit.Builder().baseUrl("https://api.openweathermap.org")
-        .client(provideHttpClient())
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
 }
 
-fun provideNewsClient(retrofit: Retrofit): WeatherService = retrofit.create(WeatherService::class.java)
+fun provideWeatherService(retrofit: Retrofit): WeatherService = retrofit.create(WeatherService::class.java)
 

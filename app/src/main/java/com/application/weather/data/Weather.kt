@@ -26,7 +26,7 @@ class Weather(
                 Weather(
                     R.drawable.icon_precipitation_info,
                     "Precipitation",
-                    weatherData.rain?.data.orEmpty()
+                    weatherData.rain?.data ?: "0"
                 ),
                 Weather(
                     R.drawable.icon_humidity_info,
