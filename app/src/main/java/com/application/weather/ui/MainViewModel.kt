@@ -39,18 +39,20 @@ class MainViewModel(
     fun getWeather(lat: String, lon: String) {
         weatherRepository.getWeather(lat, lon).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe{
+            .subscribe({
                 _weatherLiveData.value = it
-            }
+            }, {
+            })
             .addTo(compositeDisposable)
     }
 
     fun getWeather(name: String) {
         weatherRepository.getWeather(name).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe {
+            .subscribe ({
                 _weatherLiveData.value = it
-            }.addTo(compositeDisposable)
+            }, {
+            }).addTo(compositeDisposable)
     }
 
     fun getFavorite(name: String) {
@@ -76,7 +78,7 @@ class MainViewModel(
         weatherRepository.insertWeather(
             WeatherEntity(
                 name = weather.name.toString(),
-                id= weather.weather?.getOrNull(0)?.id,
+                id = weather.weather?.getOrNull(0)?.id,
                 temperature = weather.main?.temp,
                 description = weather.weather?.getOrNull(0)?.description,
                 latitude = weather.coord?.lat,
@@ -93,7 +95,7 @@ class MainViewModel(
         weatherRepository.insertFavorite(
             FavoriteEntity(
                 name = weather.name.toString(),
-                id= weather.weather?.getOrNull(0)?.id,
+                id = weather.weather?.getOrNull(0)?.id,
                 temperature = weather.main?.temp,
                 description = weather.weather?.getOrNull(0)?.description,
                 latitude = weather.coord?.lat,
